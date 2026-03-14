@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SportsLeague.DataAccess.Context;
 
@@ -11,9 +12,11 @@ using SportsLeague.DataAccess.Context;
 namespace SportsLeague.DataAccess.Migrations
 {
     [DbContext(typeof(LeagueDbContext))]
-    partial class LeagueDbContextModelSnapshot : ModelSnapshot
+    [Migration("20260314001756_AddReferee_Tournament_TournamentTeam")]
+    partial class AddReferee_Tournament_TournamentTeam
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -97,7 +100,7 @@ namespace SportsLeague.DataAccess.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Referees");
+                    b.ToTable("referees");
                 });
 
             modelBuilder.Entity("SportsLeague.Domain.Entities.Team", b =>
@@ -179,7 +182,7 @@ namespace SportsLeague.DataAccess.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Tournaments");
+                    b.ToTable("tournaments");
                 });
 
             modelBuilder.Entity("SportsLeague.Domain.Entities.TournamentTeam", b =>
@@ -212,7 +215,7 @@ namespace SportsLeague.DataAccess.Migrations
                     b.HasIndex("TournamentId", "TeamId")
                         .IsUnique();
 
-                    b.ToTable("TournamentTeams");
+                    b.ToTable("tournamentTeams");
                 });
 
             modelBuilder.Entity("SportsLeague.Domain.Entities.Player", b =>
