@@ -11,3 +11,4 @@ namespace SportsLeague.Domain.Services
         Task DeleteAsync(int id);
     }
 }
+
