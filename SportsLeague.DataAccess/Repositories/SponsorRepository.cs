@@ -17,7 +17,7 @@ namespace SportsLeague.DataAccess.Repositories
                 .Where(s => s.Name.ToLower() == name.ToLower())
                 .AnyAsync();
         }
-        // Se obtiene un sponsor por su nombre, ignorando mayúsculas y minúsculas
+        // Se obtiene un sponsor por el nombre
         public async Task<Sponsor?> GetByNameAsync(string name)
         {
             return await _dbSet
