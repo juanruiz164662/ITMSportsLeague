@@ -82,7 +82,7 @@ namespace SportsLeague.Domain.Services
                 }
             }
             //Validacion de email valido
-            if (!string.IsNullOrWhiteSpace(sponsor.ContactEmail) || sponsor.ContactEmail.Contains("@"))
+            if (string.IsNullOrWhiteSpace(sponsor.ContactEmail) || !sponsor.ContactEmail.Contains("@"))
             {
                 throw new InvalidOperationException("El email no tiene un formato valido.");
             }
