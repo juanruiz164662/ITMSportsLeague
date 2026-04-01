@@ -53,7 +53,7 @@ namespace SportsLeague.Domain.Services
             }
 
             //Validacion de email valido
-            if (string.IsNullOrWhiteSpace(sponsor.ContactEmail) && !sponsor.ContactEmail.Contains("@"))
+            if (string.IsNullOrWhiteSpace(sponsor.ContactEmail) || !sponsor.ContactEmail.Contains("@"))
             {
                 throw new InvalidOperationException("El email no tiene un formato valido.");
             }
@@ -82,7 +82,7 @@ namespace SportsLeague.Domain.Services
                 }
             }
             //Validacion de email valido
-            if (!string.IsNullOrWhiteSpace(sponsor.ContactEmail) && sponsor.ContactEmail.Contains("@"))
+            if (!string.IsNullOrWhiteSpace(sponsor.ContactEmail) || sponsor.ContactEmail.Contains("@"))
             {
                 throw new InvalidOperationException("El email no tiene un formato valido.");
             }
@@ -140,7 +140,7 @@ namespace SportsLeague.Domain.Services
                 _logger.LogWarning("Invalid contract amount {ContractAmount} for sponsor registration", contractAmount);
                 throw new InvalidOperationException("El monto del contrato debe ser mayor a 0.");
             }
-            //Validar que ya no este registrado
+            //Validar que ya no este registrado 
             var exists = await _tournamentSponsorRepository.GetByTournamentAndSponsorIdAsync(tournamentId, sponsorId);
             if (exists != null)
             {

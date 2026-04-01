@@ -5,5 +5,5 @@
         // Se envian los datos necesarios para registrar un nuevo patrocinador en un torneo
         public int SponsorId { get; set; }
         public decimal ContractAmount { get; set; }
-    }
+   }
 }
